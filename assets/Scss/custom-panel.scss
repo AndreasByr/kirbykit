@@ -1,0 +1,89 @@
+@import "_include-media";
+@import "_mixins";
+@import "_vars";
+
+@import "_fonts";
+@import "_base";
+
+
+//?###################
+
+$bgColor: #fff;
+$highlightColor: #175459;
+$textColor: #000;
+$textColor2: #fff;
+
+
+.tox-notifications-container {display: none !important;}
+
+.k-registration{display: none !important;}
+.k-topbar-signals{display: none !important;}
+.k-topbar-wrapper::after{display: none !important;}
+
+.k-panel-view{background-color: $bgColor;}
+
+.k-topbar{background-color: $highlightColor; color: $textColor2}
+
+.k-tabs{background-color: $bgColor;}
+
+.k-tab-button[aria-current]::after {
+    background: $bgColor;
+}
+.k-tab-button[aria-current] {
+    background: $bgColor;
+}
+.k-tab-button[aria-current]::before {
+    background: $textColor;
+}
+
+.k-headline{
+    text-transform: none;
+    margin-bottom: 0 !important;
+}
+
+
+
+
+
+.k-blocks{
+    box-shadow: none;
+}
+
+.k-blocks-list{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    
+    .k-block-container{
+        box-shadow: 0px 0px 4px 3px rgba(0, 0, 0, 0.05);
+    }
+}
+
+
+.k-field-name-bgcolor{
+    .k-field-header{
+        display: none;
+    }
+}
+
+
+
+
+.k-headline-field{
+    h2{
+        text-transform: none;
+        font-weight: 400;
+    }
+}
+
+.k-layout:not(:last-of-type){
+    margin-bottom: 10px;
+}
+
+.ql-container{
+    font-family: var(--fontStack);
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+.semibold{display: inline-block; font-weight: 600;}

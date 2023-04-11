@@ -1,0 +1,114 @@
+// main: main.scss
+// out: false
+
+$fontStack: ('Barlow', sans-serif);
+
+$white: #fff;
+$light:#F2F2F2;
+$dark:#595957;
+$gold_dark: #9E947A;
+$gold: #B8A67A;
+$beige_light: #ECEAE4;
+$beige: #E5DECF;
+$grey: #c9c9c9;
+$cyanblue: #45767A;
+$cyanblue_dark: #175459;
+$gutter-x: 30px;
+$gutter-y: 0;
+
+$gutter-x-m: 10px;
+$gutter-y-m: 0;
+
+$breakpoints: (
+    'phone': 576px,
+    'tablet': 768px,
+    'tablet2': 992px,
+    'desktop': 1024px,
+    'largescreen': 1200px,
+    'macbookpro': 1440px
+);
+
+:root {
+    --fontStack: #{$fontStack};
+
+    //? Color:
+    --color-text: #{$dark};
+    --color-text-light: #{$white};
+    --color-text-3: #{$gold_dark}; 
+    --color-text-4: #{$gold}; 
+    --color-text-5: #{$grey}; 
+
+    --color-background: #{$white};
+    --color-background-2: #{$cyanblue};
+    --color-background-3: #{$beige_light};
+    --color-background-4: #{$light};
+    --color-background-5: #{$gold_dark};
+    --color-background-6: #{$gold};
+    --color-background-7: #{$cyanblue_dark};
+
+    --color-headline: #{$dark};
+    --color-menu-hover: #{$gold_dark};
+
+    --color-highlight: #{$gold_dark};
+    --color-highlight-hover: #{$cyanblue_dark};
+    --color-highlight-hover-light: #{$grey};
+    --color-gold: #{$gold};
+
+    --color-main-smartmenu: #{$dark};
+    --color-background-smartmenu: #{$gold_dark};
+
+    --color-text-footer: #{$gold};
+    --color-text-footer-hover: #{$grey};
+    --color-background-footer: #{$cyanblue_dark};
+
+
+}
+
+
+:root,
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm,
+.row {
+    --bs-gutter-x: #{$gutter-x-m};
+    --bs-gutter-y: #{$gutter-y-m};
+
+    @include media(">=tablet") {
+        --bs-gutter-x: #{$gutter-x};
+        --bs-gutter-y: #{$gutter-y};
+    }
+}
+
+
+
+// @media (min-width: 576px) { 
+//     :root {
+        
+//     }
+// }
+
+// @media (min-width: 992px) { 
+//     :root {
+
+//     }
+// }
+// @media (min-width: 1024px) { 
+//     :root {
+
+//     }
+// }
+// @media (min-width: 1200px) { 
+//     :root {
+
+//     }
+// }
+// @media (min-width: 1440px) { 
+//     :root {
+
+//     }
+// }
+

@@ -1,3 +1,10 @@
+# RSM Kirby Kit
+
+https://github.com/AndreasByr/kirbykit
+
+Kirby Kit Riversite
+
+
 <img src="http://getkirby.com/assets/images/github/plainkit.jpg" width="300">
 
 
@@ -32,3 +39,6 @@ If you are familiar with Git, you can clone Kirby's Plainkit repository from Git
 
 © 2009-2022 Bastian Allgeier  
 [getkirby.com](https://getkirby.com) · [License agreement](https://getkirby.com/license)
+
+
+

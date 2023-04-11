@@ -1,0 +1,240 @@
+// main: main.scss
+// out: false
+
+
+@mixin font-size ($size : 16)
+{
+    $sizeRem: calc(($size / 10) - ((($size / 10) * 37.5) / 100));
+    font-size: $size + px;
+    font-size: $sizeRem + rem;
+}
+
+@mixin transform ($transform){
+  transform: $transform;
+}
+
+@mixin cover($type : "img") {
+
+    @if $type =='img' {
+        img {
+            display: block;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    @else if $type =='background' {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+@mixin box-sizing {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@mixin list-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none outside;
+}
+
+@mixin clearfix() {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+
+@mixin box($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+// /* ===== Usage ===== */
+//div {
+//    // You can pass width && height
+//    @include box(200px, 300px);
+//    /* or just pass width and the height
+//       will default to the width value */
+//    @include box(200px);
+//}
+@mixin pseudo(
+  $width: 100%,
+  $height: 100%,
+  $display: inline-block,
+  $pos: absolute,
+  $content: ""
+) {
+  content: $content;
+  display: $display;
+  position: $pos;
+  @include box($width, $height);
+}
+// /* ===== Usage ===== */
+//div {
+//    position: relative;
+//    width: 200px;
+//    height: 200px;
+//
+//    &:after {
+//      @include pseudo(100px, 100px);
+//    }
+// }
+
+
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+// /* ===== Usage ===== */
+//input,
+//textarea {
+//    @include input-placeholder {
+//        color: $grey;
+//    }
+//}
+
+
+// 2 - Hide and Show Element with Transition
+// -------------------------------------------
+//
+@mixin fade($type) {
+    @if $type == 'hide' {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 1s, opacity 1s;
+    }
+    @else if $type == 'show' {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 1s, opacity 1s;
+    }
+
+}
+
+
+// absolut center
+@mixin center($p : "") {
+  position: absolute;
+  @if $p == "y" {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @else if  $p == "x" {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @else{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin content($justify: "", $align: "") {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+
+  @if $justify == "start" {
+    -webkit-box-pack: start !important;
+    -webkit-justify-content: flex-start !important;
+    -ms-flex-pack: start !important;
+    justify-content: flex-start !important;
+  }@else if $justify == "end"{
+    -webkit-box-pack: end !important;
+    -webkit-justify-content: flex-end !important;
+    -ms-flex-pack: end !important;
+    justify-content: flex-end !important;
+  }@else if $justify == "center"{
+    -webkit-box-pack: center !important;
+    -webkit-justify-content: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+  }@else if $justify == "between"{
+    -webkit-box-pack: justify !important;
+    -webkit-justify-content: space-between !important;
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+  }@else if $justify == "around"{
+    -webkit-justify-content: space-around !important;
+    -ms-flex-pack: distribute !important;
+    justify-content: space-around !important;
+  }@else if $justify == "evenly"{
+    -webkit-box-pack: space-evenly !important;
+    -webkit-justify-content: space-evenly !important;
+    -ms-flex-pack: space-evenly !important;
+    justify-content: space-evenly !important;
+  }
+
+  @if $align != ""{
+    -webkit-flex-wrap: wrap !important;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+  }
+
+  @if $align == "start" {
+    -webkit-align-content: flex-start !important;
+    -ms-flex-line-pack: start !important;
+    align-content: flex-start !important;
+  }@else if $align == "end" {
+    -webkit-align-content: flex-end !important;
+    -ms-flex-line-pack: end !important;
+    align-content: flex-end !important;
+  }@else if $align == "center" {
+    -webkit-align-content: center !important;
+    -ms-flex-line-pack: center !important;
+    align-content: center !important;
+  }@else if $align == "around" {
+    -webkit-align-content: space-around !important;
+    -ms-flex-line-pack: distribute !important;
+    align-content: space-around !important;
+  }@else if $align == "stretch" {
+    -webkit-align-content: stretch !important;
+    -ms-flex-line-pack: stretch !important;
+    align-content: stretch !important;
+  }
+}
+
+
+
+@mixin transition($transitions...) {
+    $unfoldedTransitions: ();
+    @each $transition in $transitions {
+      $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
+    }
+
+    transition: $unfoldedTransitions;
+  }
+  
+  @function unfoldTransition ($transition) {
+    // Default values
+    $property: all;
+    $duration: .2s;
+    $easing: null; // Browser default is ease, which is what we want
+    $delay: null; // Browser default is 0, which is what we want
+    $defaultProperties: ($property, $duration, $easing, $delay);
+  
+    // Grab transition properties if they exist
+    $unfoldedTransition: ();
+    @for $i from 1 through length($defaultProperties) {
+      $p: null;
+      @if $i <= length($transition) {
+        $p: nth($transition, $i)
+      } @else {
+        $p: nth($defaultProperties, $i)
+      }
+      $unfoldedTransition: append($unfoldedTransition, $p);
+    }
+  
+    @return $unfoldedTransition;
+  }
+  

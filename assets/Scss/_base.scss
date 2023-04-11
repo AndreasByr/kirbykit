@@ -1,0 +1,407 @@
+// main: main.scss
+// out: false
+
+//? 'phone': 576px,
+//? 'tablet': 768px,
+//? 'tablet2':  992px,
+//? 'desktop': 1024px,
+//? 'largescreen': 1200px,
+//? 'macbookpro': 1440px
+
+// @include media(">=phone") {}
+// @include media(">=tablet") {}
+// @include media(">=tablet2") {}
+// @include media(">=desktop") {}
+// @include media(">=largescreen") {}
+
+
+// ::-moz-selection {
+
+// }
+
+// ::selection {
+
+// }
+
+@mixin font-size-default(){
+    @include font-size(16);
+    @include media(">=phone"){
+        @include font-size(16);
+    }
+    @include media(">=desktop") {
+        @include font-size(18);
+        line-height: 1.4;
+    }
+    @include media(">=macbookpro") {
+        @include font-size(20);
+    }
+}
+
+
+// INFO body
+
+html{
+    font-size: 16px;
+}
+
+body{
+    color: var(--color-text);
+    background-color: var(--color-background);
+    font-family: $fontStack;
+    font-style: normal;
+    @include font-size-default;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+
+img, embed, object, video {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
+figure {
+    margin: 0;
+  }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+    outline-width: 0;
+}
+
+input, textarea{
+    border: 0;
+    background-color: var(--color-background);
+    padding: 0;
+    margin: 0;
+    // &::placeholder{
+    //     color: var(--color-background);
+    // }
+}
+
+label{
+    padding: 0px;
+    margin-bottom: 10px;
+}
+
+select{
+    background-color: transparent;
+    border-radius: 0;
+    border: 1px solid var(--color-text);
+}
+
+p{
+    margin: 0 0 15px 0;
+
+    @include media(">=tablet") {
+        margin: 0 0 30px 0;
+    }
+
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+
+
+// hr{
+//     border: 0;
+//     height: 1px;
+//     background: $borderColor;
+//     width: 100%;
+// }
+
+blockquote{
+
+    padding-top: 80px;
+    position: relative;
+    margin-bottom: 30px;
+
+    font-style: normal;
+
+    @include font-size(18);
+    line-height: 1.36;
+
+    @include media(">=tablet") {
+        @include font-size(20);
+    }
+
+    @include media(">=desktop") {
+        @include font-size(22);
+    }
+
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
+    font-family: var(--fontStack);
+    font-weight: 400;
+    margin: 0;
+    color: inherit;
+    line-height: 1.275;
+
+    &.abstand-nach-unten-0, &.space-after-0{
+        margin-bottom: 0 !important;
+    }
+
+    &.has_line, .hasline{
+        border-bottom: 2px solid var(--color-highlight);
+        padding-bottom: 10px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        @include media(">=desktop") {
+            padding-bottom: 15px;
+            margin-top: 60px;
+            margin-bottom: 30px;
+        }
+    
+        &:first-child{
+            @include media(">=tablet") {
+                margin-top: 0;
+            }
+        }
+    
+    }
+}
+
+
+h1, .h1, h2, .h2{
+    color: var(--color-headline);
+    margin-bottom: 20px;
+
+    @include font-size(22);
+    line-height: 1.22;
+
+    @include media(">=tablet") {
+        @include font-size(30);
+        margin-bottom: 50px;
+    }
+
+    @include media(">=desktop") {
+        @include font-size(48);
+ 
+    }
+
+} 
+h2, .h2{
+    text-transform: uppercase;
+
+    @include font-size(20);
+    line-height: 1.22;
+
+    @include media(">=tablet") {
+        @include font-size(26);
+        margin-bottom: 50px;
+    }
+
+    @include media(">=desktop") {
+        @include font-size(40);
+ 
+    }
+}
+h3, .h3 {
+    color: var(--color-headline);
+    font-weight: 500;
+    margin-bottom: 10px;
+
+    @include font-size(18);
+    @include media(">=phone"){
+        @include font-size(20);
+    }
+    @include media(">=desktop") {
+        @include font-size(22);
+        margin-bottom: 20px
+    }
+    @include media(">=macbookpro") {
+        @include font-size(26);
+    }
+
+}
+
+h4, .h4 {
+    color: var(--color-headline);
+    font-weight: 600;
+    margin-bottom: 10px;
+
+    @include font-size(16);
+    @include media(">=phone"){
+        @include font-size(16);
+    }
+    @include media(">=desktop") {
+        @include font-size(18);
+        line-height: 1.4;
+        margin-bottom: 20px;
+    }
+    @include media(">=macbookpro") {
+        @include font-size(20);
+    }
+
+}
+
+
+
+// h4, .h4{
+//     font-weight: 600;
+//     margin-bottom: 10px;
+//     line-height: 1.2;
+
+//     @include font-size(16);
+//     line-height: 1.3;
+
+//     @include media(">=phone"){
+//     }
+//     @include media(">=tablet") {
+//         @include font-size(18);
+//     }
+//     @include media(">=desktop") {
+//         @include font-size(22);
+//         margin-bottom: 30px;
+//     }
+// }
+
+
+// h5, .h5{
+//     font-weight: 600;
+//     letter-spacing: 0.1em;
+//     margin-bottom: 20px;
+//     text-transform: uppercase;
+//     color: $highlightColor;
+//     line-height: 1.22;
+//     @include font-size(16);
+// }
+
+// h5 + h2{
+//     margin-top: 8px !important;
+// }
+// h5.subhead{
+//     margin-bottom: 8px;
+// }
+
+
+// h6, .h6{
+//     @include font-size-default();
+//     font-weight: 600;
+//     margin-bottom: 10px;
+//     line-height: 1.2;
+//     margin-bottom: 0;
+// }
+
+
+
+a{
+    color:inherit;
+    text-decoration: none;
+    @include transition(all 0.3s);
+
+    &:hover,
+    &:focus {
+        color: inherit;
+        outline: 0;
+        text-decoration: none;
+    }
+
+    .color-text-alt &, &.color-text-alt{
+        color: var(--color-main-page);
+        &:hover,
+        &:focus {
+           font-weight: 600;   
+           color: var(--color-main-page);
+        }
+    }
+
+    &[x-apple-data-detectors] {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+    }
+}
+
+button{
+    border: 0;
+    color: var(--color-text);
+    display: inline-block;
+    padding: 0;
+    background-color: transparent;
+    text-decoration: none;
+    &:hover{
+        color: var(--color-text);
+        background-color: transparent;
+    }
+}
+
+nav {
+    ul {margin: 0;padding: 0;
+        li {margin: 0;padding: 0;list-style: none outside;
+            &::before{display: none;}
+        }
+    }
+    a {
+        text-decoration: none;
+        &:hover {text-decoration: none;}
+        &:before{
+            content: "" !important;
+            display: none !important;
+        }
+    }
+}
+
+ul{
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 60px;
+    max-width: max-content;
+    @include media(">=tablet") {
+        margin: 0 0 30px 0;
+    }
+
+    &:last-child{
+        margin-bottom: 0;
+    }
+
+    // li{
+    //     position: relative;
+    //     padding-left: 1rem;
+    //     &:before{
+    //         content: "•";
+    //         display: inline-block;
+    //         position: absolute;
+    //         left: 0;
+    //         top: -1px;
+    //     }
+    // }
+
+    a{
+        // width: 100%;
+        padding: 2px 30px 2px 0px;
+        font-weight: 700;
+        color: var(--color-highlight);
+        display: inline-block;
+        position: relative;
+        // border-top: 1px solid var(--color-highlight);
+        @include transition(all .3s ease-in-out);
+        &:before{
+            content: ">";
+            line-height: 1;
+            display: block;
+            height: 1.2em;
+            right: 10px;
+            @include center(y);
+            @include transition(all .3s ease-in-out);
+        }
+        &:hover{
+            color: var(--color-highlight-hover);
+            // &:before{
+            //     right: 5px;
+            // }
+        }
+    }
+}
+
+
+section{
+    position: relative;
+}
